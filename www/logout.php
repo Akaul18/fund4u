@@ -1,13 +1,19 @@
 <?php
-require_once('conncection.php');
+require_once('connection.php');
 
 unset($_SESSION['user']);
-session_destroy();
-if(session_destroy())
+
+
+
+
+if(PHP_SESSION_ACTIVE == TRUE)
 {
-  echo "1";
+    echo 1;
+session_destroy();
+    
 }else{
-  echo "0";
+    echo "0";
 }
+
 
  ?>

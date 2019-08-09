@@ -3,7 +3,7 @@
 
 if( isset($_POST['username']) and isset($_POST['password']) ) {
 
-  include('conncection.php');
+  include('connection.php');
 
 		$user=$_POST['username'];
 		$pass=$_POST['password'];
@@ -16,17 +16,15 @@ if( isset($_POST['username']) and isset($_POST['password']) ) {
 
   	if(!$row) {
 
-      header('location: login.html');
-
-
-
-
-		}
+echo "user not found";
+      	}
 		else {
 
       //header('location: Dashboard.php');
       session_start();
 	    $_SESSION['user']=$user;
+	    echo $_SESSION['user']."/".$row['id'];
+	   
 
 
 		}

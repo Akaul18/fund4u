@@ -1,5 +1,5 @@
 <?php
-include("conncection.php");
+include("connection.php");
 
 $sql = "SELECT Id, Name, Email FROM user_table";
 
@@ -15,9 +15,5 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-
-
-
-
 
 ?>

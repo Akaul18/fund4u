@@ -1,27 +1,27 @@
 <?php
-include("conncection.php");
+include("connection.php");
+// echo "hello";
 if($_POST['id'])
 {
   $id = $_POST['id'];
-  echo $id;
 }
-// $sql = "SELECT Id, Name, Email FROM user_table";
-//
-// $result = $conn->query($sql);
-//
-// if ($result->num_rows > 0) {
-//     echo "<table><tr><th>ID</th><th>Name</th><th>Email</th></tr>";
-//     // output data of each row
-//     while($row = $result->fetch_assoc()) {
-//         echo "<tr><td>".$row["Id"]."</td><td>".$row["Name"]." ".$row["Email"]."</td></tr>";
-//     }
-//     echo "</table>";
-// } else {
-//     echo "0 results";
-// }
 
+$sql = "SELECT * FROM Project_details WHERE id=".$id;
+// echo $id; exit;
+$result = mysqli_query($conn, $sql);
+$rows = array();
+$op = "";
 
-
-
+if($result)
+{
+    while($row=mysqli_fetch_assoc($result))
+    {
+         $rows[]=$row;
+    }
+    $op= json_encode($rows);
+    echo $op;
+}else{
+    echo 'not done';
+}
 
 ?>

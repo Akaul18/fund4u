@@ -1,5 +1,5 @@
 <?php
-include('conncection.php');
+include('connection.php');
 // Check connection
 
 $Name = $_POST['uname'];
@@ -11,13 +11,16 @@ $sql = "INSERT INTO user_table (Name,Email,Password) VALUES ('$Name','$Email','$
 
 $result=mysqli_query($conn, $sql);
 
-if(!result){
+if($result){
 
-  echo "connection error";
+  echo "abc";
+  
+  
 }
 else {
 
-    echo 0;
+    echo "def";
+    
 }
 
 //
